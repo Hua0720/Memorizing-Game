@@ -33,7 +33,7 @@ function UserList(data) {
   dataPanel.innerHTML = rawHTML;
 }
 
-// 分頁功能製作 (需知道有多少分頁，所以用amount)
+// 分頁功能製作
 function renderPaginator(amount) {
   //計算總頁數
   const numberOfPages = Math.ceil(amount / USERS_PER_PAGE)
@@ -41,7 +41,6 @@ function renderPaginator(amount) {
   let rawHTML = ''
   // for迴圈製作分頁
   for (let page = 1; page <= numberOfPages; page++) {
-    // 綁data-page在a標籤上
     rawHTML += `<li class="page-item"><a class="page-link" href="#" data-page="${page}">${page}</a></li>`
   }
   //放回 HTML
@@ -49,7 +48,6 @@ function renderPaginator(amount) {
 }
 
 
-// page -> 第幾頁就顯示那一頁的電影卡片
 function getUsersByPage(page) {
   const data = filteredUsers.length ? filteredUsers : users
   //切割起點
@@ -64,12 +62,10 @@ function showUserModal(id) {
   const modalImage = document.querySelector("#User-modal-image");
   const modalInfo = document.querySelector("#User-modal-info");
 
-  // 參考Model Answer，清空上一個 user 的資料殘影
   modalTitle.textContent = "";
   modalImage.textContent = "";
   modalInfo.textContent = "";
 
-  // 運用API連結，建立每位user的詳細資料及照片
   axios
     .get(INDEX_URL + id)
     .then((response) => {
@@ -119,7 +115,6 @@ axios
   .get(INDEX_URL)
   .then((response) => {
     users.push(...response.data.results);
-    // UserList(users);
     renderPaginator(users.length);
     UserList(getUsersByPage(1))
   })

@@ -8,7 +8,6 @@ const dataPanel = document.querySelector('#data-panel')
 const searchForm = document.querySelector('#search-form')
 const searchInput = document.querySelector('#search-input')
 
-// <button> 要改成 x 按鈕型式
 function renderMovieList(data) {
   let rawHTML = ''
 
@@ -53,23 +52,16 @@ function showMovieModal(id) {
     })
 }
 
-// 1.要從載入的localStorage中拿出list，運用removeFrom來移除不需要的元素。
-// 2.建立函式 removeFromFavorite 。
-function removeFromFavorite(id) {
-  //防止 movies 是空陣列的狀況
+
+function removeFromFavorite(id) {  
   if (!movies || !movies.length) return
 
-  //透過 id 找到要刪除電影的 index ，findIndex 是找到元素的位置
   const movieIndex = movies.findIndex((movie) => movie.id === id)
   if (movieIndex === -1) return
 
-  //刪除該筆電影:從movies清單中找到需刪除的電影，用splice移除movieIndex回傳電影位置(從第1個位置開始)。
   movies.splice(movieIndex, 1)
-
-  //存回 local storage，movies是陣列性質，運用JSON變成字串
   localStorage.setItem('favoriteMovies', JSON.stringify(movies))
 
-  //更新頁面，用renderMovieList回傳出movies的結果
   renderMovieList(movies)
 }
 

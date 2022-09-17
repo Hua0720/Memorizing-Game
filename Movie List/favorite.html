@@ -44,33 +44,27 @@
 
   <!-- Movie Modal -->
   <div class="modal fade" id="movie-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-      <!-- 加上modal-lg效果可放大字體 -->
+    <div class="modal-dialog modal-lg">      
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="movie-modal-title">Modal title</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body" id="movie-modal-body">
-          <div class="row">
-            <!-- more裡面的圖片占比大小用col-sm-8 調整 -->
+          <div class="row">            
             <div class="col-sm-8" id="movie-modal-image">
               <img
                 src="https://github.com/ALPHACamp/movie-list-api/blob/master/public/posters/c9XxwwhPHdaImA2f1WEfEsbhaFB.jpg?raw=true"
                 alt="movie-poster" class="img-fluid">
-            </div>
-            <!-- more裡面的文字占比大小用col-sm-4 調整 -->
-            <div class="col-sm-4">
-              <!-- em 是強調某一段文字的意思 -->
+            </div>            
+            <div class="col-sm-4">              
               <p><em id="movie-modal-date">release date: 2020/01/05</em></p>
               <p id="movie-modal-description">This is a movie.</p>
             </div>
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <!--  <button type="button" class="btn btn-primary">Save changes</button> -->
-          <!-- 不需要Save changes這一個按鈕 所以拿掉  -->
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>          
         </div>
       </div>
     </div>
